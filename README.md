@@ -52,3 +52,4 @@ Then open **http://localhost:4000** in your browser — the backend serves the f
 deploy trigger
 deploy trigger2
 redploy 3
+redploy 4
