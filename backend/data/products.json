@@ -1,0 +1,90 @@
+[
+  {
+    "id": "p001",
+    "name": "Amber Oud Candle",
+    "category": "Home",
+    "price": 34.00,
+    "currency": "USD",
+    "description": "Hand-poured soy candle with amber, oud, and a trace of saffron. 45-hour burn.",
+    "image": "candle.svg",
+    "stock": 24,
+    "featured": true
+  },
+  {
+    "id": "p002",
+    "name": "Hand-Woven Table Runner",
+    "category": "Home",
+    "price": 58.00,
+    "currency": "USD",
+    "description": "Cotton and raw silk runner, woven on a traditional loom in a diamond motif.",
+    "image": "runner.svg",
+    "stock": 15,
+    "featured": true
+  },
+  {
+    "id": "p003",
+    "name": "Brass Coffee Pot",
+    "category": "Kitchen",
+    "price": 76.00,
+    "currency": "USD",
+    "description": "Hammered brass dallah for Arabic coffee, holds 900ml, hand-finished.",
+    "image": "coffeepot.svg",
+    "stock": 10,
+    "featured": true
+  },
+  {
+    "id": "p004",
+    "name": "Saffron & Rosewater Honey",
+    "category": "Pantry",
+    "price": 22.00,
+    "currency": "USD",
+    "description": "Wildflower honey infused with saffron threads and rosewater, 340g jar.",
+    "image": "honey.svg",
+    "stock": 40,
+    "featured": false
+  },
+  {
+    "id": "p005",
+    "name": "Embroidered Cushion Cover",
+    "category": "Home",
+    "price": 42.00,
+    "currency": "USD",
+    "description": "Linen cushion cover with hand embroidery in a geometric pattern, 50x50cm.",
+    "image": "cushion.svg",
+    "stock": 30,
+    "featured": false
+  },
+  {
+    "id": "p006",
+    "name": "Cardamom Coffee Beans",
+    "category": "Pantry",
+    "price": 18.00,
+    "currency": "USD",
+    "description": "Medium-roast Arabica blended with green cardamom, 250g bag.",
+    "image": "coffeebeans.svg",
+    "stock": 60,
+    "featured": true
+  },
+  {
+    "id": "p007",
+    "name": "Engraved Serving Tray",
+    "category": "Kitchen",
+    "price": 64.00,
+    "currency": "USD",
+    "description": "Round brass tray with hand-engraved detailing, 35cm diameter.",
+    "image": "tray.svg",
+    "stock": 12,
+    "featured": false
+  },
+  {
+    "id": "p008",
+    "name": "Incense Bakhoor Set",
+    "category": "Home",
+    "price": 29.00,
+    "currency": "USD",
+    "description": "Mixed bakhoor wood chips with a ceramic burner, set of 100g plus burner.",
+    "image": "bakhoor.svg",
+    "stock": 20,
+    "featured": false
+  }
+]
