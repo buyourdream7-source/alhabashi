@@ -49,3 +49,4 @@ Then open **http://localhost:4000** in your browser — the backend serves the f
 - **Products**: edit `backend/data/products.json`. Each product needs `id`, `name`, `category`, `price`, `description`, `image` (a filename from `frontend/img/`), and `stock`.
 - **Branding**: colors and fonts are defined as CSS variables at the top of `frontend/css/style.css`.
 - **Deploying**: this can be deployed as-is to any Node host (Render, Railway, a VPS). Point `API_BASE` in `frontend/js/app.js` at your backend's URL if you ever split the frontend onto a separate static host.
+deploy trigger
