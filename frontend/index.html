@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alhabashi — Everyday Objects, Made Well</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="#top" class="wordmark">Alhabashi</a>
+    <nav class="main-nav">
+      <a href="#shop">Shop</a>
+      <a href="#story">Our story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-toggle" id="cartToggle" aria-label="Open cart">
+      Cart <span id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-row">
+      <div class="hero-copy">
+        <p class="hero-kicker">A small workshop for the everyday table</p>
+        <h1>Objects worth<br>keeping for years.</h1>
+        <p class="hero-sub">Alhabashi makes and sources the things that sit at the center of a home — coffee pots, table linens, honey, incense — chosen for how they age, not just how they photograph.</p>
+        <a href="#shop" class="btn btn-primary">Shop the collection</a>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <img src="img/coffeepot.svg" alt="" />
+      </div>
+    </div>
+    <img class="motif" src="img/motif.svg" alt="" aria-hidden="true">
+  </section>
+
+  <section class="categories wrap">
+    <button class="chip active" data-category="">All</button>
+    <button class="chip" data-category="Home">Home</button>
+    <button class="chip" data-category="Kitchen">Kitchen</button>
+    <button class="chip" data-category="Pantry">Pantry</button>
+  </section>
+
+  <section id="shop" class="shop wrap">
+    <div class="shop-head">
+      <h2>The collection</h2>
+      <input type="search" id="searchInput" placeholder="Search products…" />
+    </div>
+    <div id="productGrid" class="product-grid" aria-live="polite">
+      <!-- product cards injected here -->
+    </div>
+  </section>
+
+  <section id="story" class="story">
+    <div class="wrap story-row">
+      <div>
+        <h2>Made slowly, on purpose.</h2>
+        <p>Every piece in the Alhabashi collection is made by a small group of artisans and food producers we work with directly. We keep the catalog small so that each object earns its place — nothing is added just to fill a shelf.</p>
+      </div>
+      <div class="story-stats">
+        <div><strong>8</strong><span>products in this launch</span></div>
+        <div><strong>3</strong><span>artisan partners</span></div>
+        <div><strong>1</strong><span>promise: it lasts</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact wrap">
+    <h2>Questions before you order?</h2>
+    <p>Write to <a href="mailto:hello@alhabashi.example">hello@alhabashi.example</a> and we'll get back to you within a day.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year"></span> Alhabashi. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- Cart drawer -->
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+  <div class="cart-drawer-inner">
+    <div class="cart-drawer-head">
+      <h2>Your cart</h2>
+      <button id="cartClose" aria-label="Close cart">Close</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-summary">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button id="checkoutBtn" class="btn btn-primary" disabled>Checkout</button>
+    </div>
+  </div>
+</aside>
+<div id="cartOverlay" class="overlay" aria-hidden="true"></div>
+
+<!-- Checkout modal -->
+<div id="checkoutModal" class="modal" aria-hidden="true">
+  <div class="modal-inner">
+    <button id="checkoutClose" class="modal-close" aria-label="Close">Close</button>
+    <h2>Complete your order</h2>
+    <form id="checkoutForm">
+      <label>Full name
+        <input type="text" name="name" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>Shipping address
+        <textarea name="address" rows="3" required></textarea>
+      </label>
+      <div class="checkout-summary" id="checkoutSummary"></div>
+      <button type="submit" class="btn btn-primary">Place order</button>
+      <p class="checkout-error" id="checkoutError"></p>
+    </form>
+    <div id="orderConfirmation" class="order-confirmation" hidden>
+      <h3>Order received</h3>
+      <p>Thank you — your confirmation number is <strong id="orderId"></strong>.</p>
+      <button id="continueShoppingBtn" class="btn btn-secondary">Continue shopping</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
