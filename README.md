@@ -51,3 +51,4 @@ Then open **http://localhost:4000** in your browser — the backend serves the f
 - **Deploying**: this can be deployed as-is to any Node host (Render, Railway, a VPS). Point `API_BASE` in `frontend/js/app.js` at your backend's URL if you ever split the frontend onto a separate static host.
 deploy trigger
 deploy trigger2
+redploy 3
