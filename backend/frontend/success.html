@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Order confirmed — Alhabashi</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: "Work Sans", sans-serif;
+    background: #1C1B1A;
+    color: #F3EFE6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    max-width: 440px;
+    text-align: center;
+  }
+  h1 {
+    font-family: "Fraunces", serif;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+  p { color: #D8D2C4; line-height: 1.6; }
+  strong { color: #A8752E; }
+  a.btn {
+    display: inline-block;
+    margin-top: 24px;
+    background: #A8752E;
+    color: #1C1B1A;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 2px;
+  }
+  #loading { color: #D8D2C4; }
+  #error { color: #E07856; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div id="loading">Confirming your order…</div>
+    <div id="result" hidden>
+      <h1>Order confirmed</h1>
+      <p>Thank you — your confirmation number is <strong id="orderId"></strong>.</p>
+      <p>A summary was sent to <strong id="orderEmail"></strong>.</p>
+      <a class="btn" href="/">Continue shopping</a>
+    </div>
+    <div id="error" hidden>
+      <h1>Something went wrong</h1>
+      <p>We couldn't confirm your payment. If you were charged, please contact us and we'll sort it out.</p>
+      <a class="btn" href="/">Back to shop</a>
+    </div>
+  </div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
+
+  async function confirmOrder() {
+    if (!sessionId) {
+      document.getElementById("loading").hidden = true;
+      document.getElementById("error").hidden = false;
+      return;
+    }
+    try {
+      const res = await fetch(`/api/checkout-session/${sessionId}`);
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Confirmation failed");
+
+      document.getElementById("loading").hidden = true;
+      document.getElementById("orderId").textContent = data.id;
+      document.getElementById("orderEmail").textContent = data.customer.email;
+      document.getElementById("result").hidden = false;
+
+      // Clear the local cart now that payment is confirmed
+      localStorage.removeItem("alhabashi_cart");
+    } catch (err) {
+      document.getElementById("loading").hidden = true;
+      document.getElementById("error").hidden = false;
+    }
+  }
+
+  confirmOrder();
+</script>
+</body>
+</html>

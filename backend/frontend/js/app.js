@@ -220,6 +220,11 @@ el.continueShoppingBtn.addEventListener("click", () => {
 el.checkoutForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   el.checkoutError.textContent = "";
+
+  const submitBtn = el.checkoutForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Redirecting to payment…";
+
   const formData = new FormData(el.checkoutForm);
   const customer = {
     name: formData.get("name"),
@@ -232,7 +237,7 @@ el.checkoutForm.addEventListener("submit", async (e) => {
   }));
 
   try {
-    const res = await fetch(`${API_BASE}/orders`, {
+    const res = await fetch(`${API_BASE}/create-checkout-session`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ customer, items }),
@@ -240,15 +245,12 @@ el.checkoutForm.addEventListener("submit", async (e) => {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || "Something went wrong");
 
-    state.cart = {};
-    saveCart();
-    renderCart();
-
-    el.checkoutForm.hidden = true;
-    el.orderConfirmation.hidden = false;
-    el.orderId.textContent = data.id;
+    // Send the customer to Stripe's hosted payment page
+    window.location.href = data.url;
   } catch (err) {
     el.checkoutError.textContent = err.message;
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Place order";
   }
 });
 
