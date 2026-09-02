@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Order confirmed — Alhabashi</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
-    font-family: "Work Sans", sans-serif;
-    background: #1C1B1A;
-    color: #F3EFE6;
+    font-family: "Inter", sans-serif;
+    background: #EAF4FC;
+    color: #1B2A41;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -20,27 +20,31 @@
   .card {
     max-width: 440px;
     text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #BFE0F5;
+    border-radius: 12px;
+    padding: 40px 32px;
   }
   h1 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
     font-size: 2rem;
     margin-bottom: 12px;
   }
-  p { color: #D8D2C4; line-height: 1.6; }
-  strong { color: #A8752E; }
+  p { color: #55697C; line-height: 1.6; }
+  strong { color: #2E7DC9; }
   a.btn {
     display: inline-block;
     margin-top: 24px;
-    background: #A8752E;
-    color: #1C1B1A;
+    background: #2E7DC9;
+    color: #FFFFFF;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     padding: 12px 24px;
-    border-radius: 2px;
+    border-radius: 8px;
   }
-  #loading { color: #D8D2C4; }
-  #error { color: #E07856; }
+  #loading { color: #55697C; }
+  #error { color: #C0392B; }
 </style>
 </head>
 <body>
@@ -79,7 +83,6 @@
       document.getElementById("orderEmail").textContent = data.customer.email;
       document.getElementById("result").hidden = false;
 
-      // Clear the local cart now that payment is confirmed
       localStorage.removeItem("alhabashi_cart");
     } catch (err) {
       document.getElementById("loading").hidden = true;
